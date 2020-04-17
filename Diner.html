@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+<body>
+
+<div id="sidebar" class="sidebar">
+    <div class="toggle-btn" onclick="toggleMenu()">
+        <button class="side-toggle" onclick="menu(this)">Main Menu</button>
+    </div>
+
+    <ul class="create-links-menu-dropdown">
+        <div id="menu" class="menu">
+            
+
+            <li class="create-link">
+                <button onclick="food1(this)" type="button">Food1</button>
+            </li>
+            
+            <li class="create-link">
+                <button onclick="food2(this)" type="button">Food2</button>
+            </li>
+            
+            <li class="create-link">
+                <button onclick="food3(this)" type="button">Food3</button>
+            </li>
+            
+            <li class="create-link">
+                <button onclick="food4(this)" type="button">Food4</button>
+            </li>
+
+            <div id="midbar" class="midbar">
+                <div class="toggle-btn" onclick="toggleEntree()">
+                    <button class="side-toggle" onclick="sideMenu(this)">Side Menu</button>
+                </div>
+            
+                <ul class="create-links-menu-dropdown">
+                    <div id="entree" class="entree">
+                        
+            
+                        <li class="create-link">
+                            <button onclick="side1(this)" type="button">Side1</button>
+                        </li>
+                        
+                        <li class="create-link">
+                            <button onclick="side2(this)" type="button">Side2</button>
+                        </li>
+                        
+                        <li class="create-link">
+                            <button onclick="side3(this)" type="button">Side3</button>
+                        </li>
+                        
+                        <li class="create-link">
+                            <button onclick="side4(this)" type="button">Side4</button>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<div class="paragraph">
+    Build out a Diner menu in JAVASCRIPT. Here are your instructions to build that Diner.
+    Bottega Diner<br>
+    Have the Main Menu and a Sides Menu<br>
+    You get one entree and two side choices at regular cost.<br>
+    - show them the entire menu (print out)<br>
+    - A user selects an entree.<br>
+    - “Waitress” makes a comment based on their selection<br>
+    - comment can either be a comparison of the two items, or random comment pulled from a comment vault.<br>
+    - Tell them the price<br>
+    - repeat the above options for side choices (comment and a price)<br>
+    - total up the cost<br>
+
+    BONUS<br>
+    Have a breakfast, lunch and dinner menu. Breakfast has different items, lunch and dinner have the same items but are different prices.<br>
+
+    BONUS: Allow for item customization (how items are prepared, decide additional cost implications)<br>
+</div>
+
+</body>
+<script>
+    function toggleMenu(){
+    document.getElementById("menu").classList.toggle('active');
+        }
+    function toggleEntree(){
+    document.getElementById("entree").classList.toggle('active');
+    }
+
+    function menu(id) {
+        id.innerHTML = "Waitress: Here Are The Choices For This Evening."
+    }
+
+    function food1(id) {
+    id.innerHTML = "Waitress: That is a Great Choice! Food1 is $10";
+    }
+
+    function food2(id) {
+    id.innerHTML = "Waitress: That is a Terrible Choice! Food2 is $20";
+    }
+
+    function food3(id) {
+    id.innerHTML = "Waitress: That is a Lucky Choice! Food3 is $30";
+    }
+
+    function food4(id) {
+    id.innerHTML = "Waitress: That is My Favorite! Food4 is $40";
+    }
+
+    function sideMenu(id) {
+    id.innerHTML = "Waitress: Please Choose Two Sides.";
+    }
+
+    function side1(id) {
+    id.innerHTML = "Waitress: That is a Great Choice! Side1 is $1";
+    }
+
+    function side2(id) {
+    id.innerHTML = "Waitress: That is a Terrible Choice! Side2 is $2";
+    }
+
+    function side3(id) {
+    id.innerHTML = "Waitress: That is a Lucky Choice! Side3 is $3";
+    }
+
+    function side4(id) {
+    id.innerHTML = "Waitress: That is My Favorite! Side4 is $4";
+    }
+
+
+    const entreeSubmit = event => {
+        event.preventDefault()
+        total += entrees[entreeChoice]
+        welcome.style.display = "none"
+        entree.style.display = "none"
+        comment()
+        sideMenu()
+    }
+</script>
+
+<style>
+.paragraph.active {
+    color: black;
+    visibility: visible;
+    position:absolute;
+    left: 0;
+    height: 500px;
+    width: 100%;
+    overflow-x: visible;
+    background-color: white;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.create-link {
+    font-size: 23px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 250px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    overflow-x: visible;
+    background-color: white;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.midbar {
+    position: fixed;
+    top: 410px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    overflow-x: visible;
+    background-color: white;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu {
+    visibility: hidden;
+}
+
+.entree {
+    visibility: hidden;
+}
+
+.menu.active {
+    visibility: visible;
+}
+
+.entree.active {
+    visibility: visible;
+}
+
+.menu > .toggle-btn {
+    position: absolute;
+    top: 0px;
+}
+
+.entree > .toggle-btn {
+    position: absolute;
+    top: 0px;
+}
+
+.side-toggle:focus {
+    outline: none;
+}
+
+.sidebar > .toggle-btn > .side-toggle {
+    font-size: 18px;
+}
+
+.midbar > .toggle-btn > .side-toggle {
+    font-size: 18px;
+}
+
+</style>
+</html>
